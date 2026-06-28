@@ -1,0 +1,6 @@
+[
+  {"category_id":1,"category_name":"Appetizers","description":"Small dishes served before the main meal"},
+  {"category_id":2,"category_name":"Main Courses","description":"Primary dishes including steaks, pastas, and burgers"},
+  {"category_id":3,"category_name":"Desserts","description":"Sweet dishes, cakes, and pastries"},
+  {"category_id":4,"category_name":"Beverages","description":"Hot and cold drinks, including coffees and juices"}
+]

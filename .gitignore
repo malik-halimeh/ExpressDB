@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Local Environment Variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+postman obj.md
+
+schema.sql
+
+AllTablesandSql.md

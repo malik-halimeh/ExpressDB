@@ -1,0 +1,7 @@
+[
+  {"customer_id":1,"customer_name":"John Doe","phone_number":"+1-555-0198","address":"123 Magnolia Lane, Springfield"},
+  {"customer_id":2,"customer_name":"Jane Smith","phone_number":"+1-555-0143","address":"456 Oak Avenue, Metropolis"},
+  {"customer_id":3,"customer_name":"Michael Brown","phone_number":"+1-555-0177","address":"789 Pine Road, Gotham"},
+  {"customer_id":4,"customer_name":"Emily Davis","phone_number":"+1-555-0121","address":"321 Elm Street, Star City"},
+  {"customer_id":5,"customer_name":"David Wilson","phone_number":"+1-555-0165","address":"654 Cedar Court, Central City"}
+]

@@ -1,0 +1,11 @@
+[
+  {"item_id":1,"item_name":"Garlic Parmesan Breadsticks","price":6.99,"category_id":1,"description":"Baked breadsticks brushed with garlic butter and parmesan.","image_url":"https://example.com/images/breadsticks.jpg","is_available":true},
+  {"item_id":2,"item_name":"Chicken Caesar Salad","price":12.50,"category_id":1,"description":"Crisp romaine lettuce, grilled chicken, croutons, and Caesar dressing.","image_url":"https://example.com/images/caesar_salad.jpg","is_available":true},
+  {"item_id":3,"item_name":"Grilled Ribeye Steak","price":28.99,"category_id":2,"description":"12oz ribeye served with mashed potatoes and asparagus.","image_url":"https://example.com/images/ribeye.jpg","is_available":true},
+  {"item_id":4,"item_name":"Classic Margherita Pizza","price":15.00,"category_id":2,"description":"Fresh mozzarella, tomatoes, and basil on a thin crust.","image_url":"https://example.com/images/margherita.jpg","is_available":true},
+  {"item_id":5,"item_name":"Fettuccine Alfredo","price":16.50,"category_id":2,"description":"Rich parmesan cream sauce over fresh fettuccine pasta.","image_url":"https://example.com/images/alfredo.jpg","is_available":false},
+  {"item_id":6,"item_name":"Chocolate Lava Cake","price":8.25,"category_id":3,"description":"Warm chocolate cake with a molten chocolate center.","image_url":"https://example.com/images/lava_cake.jpg","is_available":true},
+  {"item_id":7,"item_name":"New York Cheesecake","price":7.50,"category_id":3,"description":"Classic creamy cheesecake with strawberry topping.","image_url":"https://example.com/images/cheesecake.jpg","is_available":true},
+  {"item_id":8,"item_name":"Iced Caramel Macchiato","price":4.99,"category_id":4,"description":"Espresso with cold milk and sweet caramel syrup.","image_url":"https://example.com/images/macchiato.jpg","is_available":true},
+  {"item_id":9,"item_name":"Fresh Lemonade","price":3.50,"category_id":4,"description":"House-squeezed lemons with cane sugar.","image_url":"https://example.com/images/lemonade.jpg","is_available":true}
+]

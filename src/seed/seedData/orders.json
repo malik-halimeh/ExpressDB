@@ -1,0 +1,7 @@
+[
+  {"order_id":101,"customer_id":1,"order_date":"2026-06-20 12:30:00","total_amount":35.98},
+  {"order_id":102,"customer_id":2,"order_date":"2026-06-21 18:45:00","total_amount":15.00},
+  {"order_id":103,"customer_id":3,"order_date":"2026-06-21 19:15:00","total_amount":41.49},
+  {"order_id":104,"customer_id":4,"order_date":"2026-06-22 08:30:00","total_amount":8.49},
+  {"order_id":105,"customer_id":1,"order_date":"2026-06-22 13:00:00","total_amount":20.75}
+]

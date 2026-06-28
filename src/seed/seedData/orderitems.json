@@ -1,0 +1,11 @@
+[
+  {"order_item_id":1,"order_id":101,"item_id":1,"quantity":1,"unit_price":6.99},
+  {"order_item_id":2,"order_id":101,"item_id":3,"quantity":1,"unit_price":28.99},
+  {"order_item_id":3,"order_id":102,"item_id":4,"quantity":1,"unit_price":15.00},
+  {"order_item_id":4,"order_id":103,"item_id":2,"quantity":1,"unit_price":12.50},
+  {"order_item_id":5,"order_id":103,"item_id":3,"quantity":1,"unit_price":28.99},
+  {"order_item_id":6,"order_id":104,"item_id":8,"quantity":1,"unit_price":4.99},
+  {"order_item_id":7,"order_id":104,"item_id":9,"quantity":1,"unit_price":3.50},
+  {"order_item_id":8,"order_id":105,"item_id":2,"quantity":1,"unit_price":12.50},
+  {"order_item_id":9,"order_id":105,"item_id":6,"quantity":1,"unit_price":8.25}
+]
