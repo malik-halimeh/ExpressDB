@@ -18,3 +18,5 @@ postman obj.md
 schema.sql
 
 AllTablesandSql.md
+
+postman_collection.json
