@@ -1,8 +1,10 @@
 {
   "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
     "name": "Restaurant API",
-    "description": "Complete Postman Collection for testing all CRUD endpoints, express-validators, database schemas, pagination filters, and error handlers.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "description": "Complete Postman Collection v2.1 — 5 entities x 5 CRUD operations = 25 requests. No scripts. All ObjectIds are real values from the seeded database. Port: 5000.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "restaurant-api-exporter"
   },
   "variable": [
     {
@@ -14,9 +16,11 @@
   "item": [
     {
       "name": "Categories",
+      "description": "CRUD for /api/categories. Seeded categories: Appetizers (1), Main Courses (2), Desserts (3), Beverages (4).",
       "item": [
         {
-          "name": "Create Category",
+          "id": "cat-001",
+          "name": "POST Create Category",
           "request": {
             "method": "POST",
             "header": [
@@ -27,7 +31,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"category_id\": 10,\n  \"category_name\": \"Mexican Foods\",\n  \"description\": \"Tacos, burritos and quesadillas\"\n}"
+              "raw": "{\n  \"category_id\": 11,\n  \"category_name\": \"Seafood\",\n  \"description\": \"Fresh fish, prawns, calamari and other seafood dishes\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{baseUrl}}/categories",
@@ -37,13 +46,16 @@
               "path": [
                 "categories"
               ]
-            }
+            },
+            "description": "Creates a new category. Returns 201 with the created document including its MongoDB _id."
           }
         },
         {
-          "name": "Get All Categories (Paginated)",
+          "id": "cat-002",
+          "name": "GET All Categories",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/categories?page=1&limit=10",
               "host": [
@@ -62,27 +74,32 @@
                   "value": "10"
                 }
               ]
-            }
+            },
+            "description": "Returns a paginated list of all categories sorted by category_id ascending."
           }
         },
         {
-          "name": "Get Category by ObjectId",
+          "id": "cat-003",
+          "name": "GET Category by ID",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/categories/65f012345678901234567890",
+              "raw": "{{baseUrl}}/categories/6a4164b8457d284f4f407d61",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "categories",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d61"
               ]
-            }
+            },
+            "description": "Retrieves the 'Main Courses' category (category_id: 2) by its MongoDB ObjectId."
           }
         },
         {
-          "name": "Update Category by ObjectId",
+          "id": "cat-004",
+          "name": "PUT Update Category",
           "request": {
             "method": "PUT",
             "header": [
@@ -93,43 +110,54 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"description\": \"Updated description for Mexican street foods\"\n}"
+              "raw": "{\n  \"description\": \"Primary dishes including steaks, pastas, burgers and pizzas\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
-              "raw": "{{baseUrl}}/categories/65f012345678901234567890",
+              "raw": "{{baseUrl}}/categories/6a4164b8457d284f4f407d61",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "categories",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d61"
               ]
-            }
+            },
+            "description": "Updates the description of the 'Main Courses' category (category_id: 2)."
           }
         },
         {
-          "name": "Delete Category by ObjectId",
+          "id": "cat-005",
+          "name": "DELETE Category",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/categories/65f012345678901234567890",
+              "raw": "{{baseUrl}}/categories/6a42d1c4d37add3870c16331",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "categories",
-                "65f012345678901234567890"
+                "6a42d1c4d37add3870c16331"
               ]
-            }
+            },
+            "description": "Deletes the 'Mexican Tacos' category (category_id: 10). This one has no menu items referencing it so the delete will succeed."
           }
         }
       ]
     },
     {
       "name": "Customers",
+      "description": "CRUD for /api/customers. Seeded customers: John Doe (1), Jane Smith (2), Michael Brown (3), Emily Davis (4), David Wilson (5).",
       "item": [
         {
-          "name": "Create Customer",
+          "id": "cust-001",
+          "name": "POST Create Customer",
           "request": {
             "method": "POST",
             "header": [
@@ -140,7 +168,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"customer_id\": 15,\n  \"customer_name\": \"Bruce Wayne\",\n  \"phone_number\": \"+1-555-9000\",\n  \"address\": \"Wayne Manor, Gotham City\"\n}"
+              "raw": "{\n  \"customer_id\": 16,\n  \"customer_name\": \"Diana Prince\",\n  \"phone_number\": \"+1-555-7654\",\n  \"address\": \"Themyscira Island, Aegean Sea\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{baseUrl}}/customers",
@@ -150,15 +183,18 @@
               "path": [
                 "customers"
               ]
-            }
+            },
+            "description": "Creates a new customer. Returns 201 with the created document including its MongoDB _id."
           }
         },
         {
-          "name": "Get All Customers (Paginated)",
+          "id": "cust-002",
+          "name": "GET All Customers",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/customers?page=1&limit=5",
+              "raw": "{{baseUrl}}/customers?page=1&limit=10",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -172,30 +208,35 @@
                 },
                 {
                   "key": "limit",
-                  "value": "5"
+                  "value": "10"
                 }
               ]
-            }
+            },
+            "description": "Returns a paginated list of all customers sorted by customer_id ascending."
           }
         },
         {
-          "name": "Get Customer by ObjectId",
+          "id": "cust-003",
+          "name": "GET Customer by ID",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/customers/65f012345678901234567890",
+              "raw": "{{baseUrl}}/customers/6a4164b8457d284f4f407d65",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "customers",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d65"
               ]
-            }
+            },
+            "description": "Retrieves 'John Doe' (customer_id: 1) by his MongoDB ObjectId."
           }
         },
         {
-          "name": "Update Customer by ObjectId",
+          "id": "cust-004",
+          "name": "PUT Update Customer",
           "request": {
             "method": "PUT",
             "header": [
@@ -206,43 +247,54 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"address\": \"Batcave, Gotham City\"\n}"
+              "raw": "{\n  \"phone_number\": \"+1-555-0199\",\n  \"address\": \"456 Magnolia Lane, Springfield\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
-              "raw": "{{baseUrl}}/customers/65f012345678901234567890",
+              "raw": "{{baseUrl}}/customers/6a4164b8457d284f4f407d65",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "customers",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d65"
               ]
-            }
+            },
+            "description": "Updates John Doe's phone number and address."
           }
         },
         {
-          "name": "Delete Customer by ObjectId",
+          "id": "cust-005",
+          "name": "DELETE Customer",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/customers/65f012345678901234567890",
+              "raw": "{{baseUrl}}/customers/6a42d1e5d37add3870c16333",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "customers",
-                "65f012345678901234567890"
+                "6a42d1e5d37add3870c16333"
               ]
-            }
+            },
+            "description": "Deletes 'Bruce Wayne' (customer_id: 15). This customer's order (order_id: 200) must be deleted first, otherwise returns 400 RESTRICT error."
           }
         }
       ]
     },
     {
       "name": "Menu Items",
+      "description": "CRUD for /api/menu-items. Seeded items include Garlic Parmesan Breadsticks (1), Grilled Ribeye Steak (3), Chocolate Lava Cake (6), Iced Caramel Macchiato (8), etc.",
       "item": [
         {
-          "name": "Create Menu Item",
+          "id": "mi-001",
+          "name": "POST Create Menu Item",
           "request": {
             "method": "POST",
             "header": [
@@ -253,7 +305,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"item_id\": 20,\n  \"item_name\": \"Cheese Quesadilla\",\n  \"price\": 8.99,\n  \"category\": \"65f012345678901234567890\",\n  \"description\": \"Flour tortilla filled with cheese and grilled.\",\n  \"image_url\": \"https://example.com/images/quesadilla.jpg\",\n  \"is_available\": true\n}"
+              "raw": "{\n  \"item_id\": 21,\n  \"item_name\": \"Lobster Bisque\",\n  \"price\": 18.99,\n  \"category\": \"6a4164b8457d284f4f407d60\",\n  \"description\": \"Creamy lobster soup with a hint of sherry and fresh herbs.\",\n  \"image_url\": \"https://example.com/images/lobster_bisque.jpg\",\n  \"is_available\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{baseUrl}}/menu-items",
@@ -263,13 +320,16 @@
               "path": [
                 "menu-items"
               ]
-            }
+            },
+            "description": "Creates a new menu item under the 'Appetizers' category (6a4164b8457d284f4f407d60). Returns 201 with the created document."
           }
         },
         {
-          "name": "Get All Menu Items (Paginated)",
+          "id": "mi-002",
+          "name": "GET All Menu Items",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/menu-items?page=1&limit=10",
               "host": [
@@ -288,27 +348,32 @@
                   "value": "10"
                 }
               ]
-            }
+            },
+            "description": "Returns a paginated list of all menu items sorted by item_id ascending. The category field is fully populated in each result."
           }
         },
         {
-          "name": "Get Menu Item by ObjectId",
+          "id": "mi-003",
+          "name": "GET Menu Item by ID",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/menu-items/65f012345678901234567890",
+              "raw": "{{baseUrl}}/menu-items/6a4164b8457d284f4f407d6d",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "menu-items",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d6d"
               ]
-            }
+            },
+            "description": "Retrieves 'Grilled Ribeye Steak' (item_id: 3) by its MongoDB ObjectId. Response includes the fully populated Main Courses category."
           }
         },
         {
-          "name": "Update Menu Item by ObjectId",
+          "id": "mi-004",
+          "name": "PUT Update Menu Item",
           "request": {
             "method": "PUT",
             "header": [
@@ -319,43 +384,54 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"price\": 9.50,\n  \"is_available\": false\n}"
+              "raw": "{\n  \"price\": 31.99,\n  \"description\": \"14oz prime cut ribeye served with truffle mashed potatoes and asparagus.\",\n  \"is_available\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
-              "raw": "{{baseUrl}}/menu-items/65f012345678901234567890",
+              "raw": "{{baseUrl}}/menu-items/6a4164b8457d284f4f407d6d",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "menu-items",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d6d"
               ]
-            }
+            },
+            "description": "Updates the price and description of 'Grilled Ribeye Steak' (item_id: 3)."
           }
         },
         {
-          "name": "Delete Menu Item by ObjectId",
+          "id": "mi-005",
+          "name": "DELETE Menu Item",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/menu-items/65f012345678901234567890",
+              "raw": "{{baseUrl}}/menu-items/6a4164b8457d284f4f407d73",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "menu-items",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d73"
               ]
-            }
+            },
+            "description": "Deletes 'Fresh Lemonade' (item_id: 9). Note: order item #7 references this menu item — delete that order item first or this will return a 400 RESTRICT error."
           }
         }
       ]
     },
     {
       "name": "Orders",
+      "description": "CRUD for /api/orders. Seeded orders: 101 (John Doe, $35.98), 102 (Jane Smith, $15.00), 103 (Michael Brown, $41.49), 104 (Emily Davis, $8.49). DELETE cascades to child order items.",
       "item": [
         {
-          "name": "Create Order",
+          "id": "ord-001",
+          "name": "POST Create Order",
           "request": {
             "method": "POST",
             "header": [
@@ -366,7 +442,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"order_id\": 200,\n  \"customer\": \"65f012345678901234567890\",\n  \"total_amount\": 15.00\n}"
+              "raw": "{\n  \"order_id\": 201,\n  \"customer\": \"6a4164b8457d284f4f407d66\",\n  \"order_date\": \"2026-06-29T20:00:00.000Z\",\n  \"total_amount\": 44.98\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{baseUrl}}/orders",
@@ -376,15 +457,18 @@
               "path": [
                 "orders"
               ]
-            }
+            },
+            "description": "Creates a new order for 'Jane Smith' (customer_id: 2, ObjectId: 6a4164b8457d284f4f407d66). Returns 201 with the created document."
           }
         },
         {
-          "name": "Get All Orders (Paginated)",
+          "id": "ord-002",
+          "name": "GET All Orders",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/orders?page=1&limit=5",
+              "raw": "{{baseUrl}}/orders?page=1&limit=10",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -398,30 +482,35 @@
                 },
                 {
                   "key": "limit",
-                  "value": "5"
+                  "value": "10"
                 }
               ]
-            }
+            },
+            "description": "Returns a paginated list of all orders sorted by order_date descending. The customer field is fully populated in each result."
           }
         },
         {
-          "name": "Get Order by ObjectId",
+          "id": "ord-003",
+          "name": "GET Order by ID",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/orders/65f012345678901234567890",
+              "raw": "{{baseUrl}}/orders/6a4164b8457d284f4f407d75",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "orders",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d75"
               ]
-            }
+            },
+            "description": "Retrieves order #101 (John Doe, $35.98) by its MongoDB ObjectId. Response includes the fully populated customer document."
           }
         },
         {
-          "name": "Update Order by ObjectId",
+          "id": "ord-004",
+          "name": "PUT Update Order",
           "request": {
             "method": "PUT",
             "header": [
@@ -432,43 +521,54 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"total_amount\": 28.50\n}"
+              "raw": "{\n  \"total_amount\": 38.97,\n  \"order_date\": \"2026-06-29T13:00:00.000Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
-              "raw": "{{baseUrl}}/orders/65f012345678901234567890",
+              "raw": "{{baseUrl}}/orders/6a4164b8457d284f4f407d75",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "orders",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d75"
               ]
-            }
+            },
+            "description": "Updates the total amount and order date of order #101 (John Doe)."
           }
         },
         {
-          "name": "Delete Order by ObjectId",
+          "id": "ord-005",
+          "name": "DELETE Order",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/orders/65f012345678901234567890",
+              "raw": "{{baseUrl}}/orders/6a42d216d37add3870c1633b",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "orders",
-                "65f012345678901234567890"
+                "6a42d216d37add3870c1633b"
               ]
-            }
+            },
+            "description": "Deletes order #200 (Bruce Wayne, $28.50). Its child order item (order_item_id: 200) is automatically deleted via CASCADE."
           }
         }
       ]
     },
     {
       "name": "Order Items",
+      "description": "CRUD for /api/order-items. Seeded order items: 1-2 belong to order #101, 3 to #102, 4-5 to #103, 6-7 to #104.",
       "item": [
         {
-          "name": "Create Order Item",
+          "id": "oi-001",
+          "name": "POST Create Order Item",
           "request": {
             "method": "POST",
             "header": [
@@ -479,7 +579,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"order_item_id\": 200,\n  \"order\": \"65f012345678901234567890\",\n  \"menuItem\": \"65f012345678901234567890\",\n  \"quantity\": 2,\n  \"unit_price\": 14.99\n}"
+              "raw": "{\n  \"order_item_id\": 201,\n  \"order\": \"6a4164b8457d284f4f407d76\",\n  \"menuItem\": \"6a4164b8457d284f4f407d70\",\n  \"quantity\": 2,\n  \"unit_price\": 8.25\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{baseUrl}}/order-items",
@@ -489,13 +594,16 @@
               "path": [
                 "order-items"
               ]
-            }
+            },
+            "description": "Creates a new order item: 2x Chocolate Lava Cake ($8.25 each) added to order #102 (Jane Smith). Returns 201 with the created document."
           }
         },
         {
-          "name": "Get All Order Items (Paginated)",
+          "id": "oi-002",
+          "name": "GET All Order Items",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
               "raw": "{{baseUrl}}/order-items?page=1&limit=10",
               "host": [
@@ -514,27 +622,32 @@
                   "value": "10"
                 }
               ]
-            }
+            },
+            "description": "Returns a paginated list of all order items sorted by order_item_id ascending. Both order and menuItem fields are fully populated in each result."
           }
         },
         {
-          "name": "Get Order Item by ObjectId",
+          "id": "oi-003",
+          "name": "GET Order Item by ID",
           "request": {
             "method": "GET",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/order-items/65f012345678901234567890",
+              "raw": "{{baseUrl}}/order-items/6a4164b8457d284f4f407d7c",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "order-items",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d7c"
               ]
-            }
+            },
+            "description": "Retrieves order item #2 (1x Grilled Ribeye Steak at $28.99, part of order #101) by its MongoDB ObjectId. Response includes fully populated order and menuItem documents."
           }
         },
         {
-          "name": "Update Order Item by ObjectId",
+          "id": "oi-004",
+          "name": "PUT Update Order Item",
           "request": {
             "method": "PUT",
             "header": [
@@ -545,34 +658,43 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"quantity\": 5,\n  \"unit_price\": 13.50\n}"
+              "raw": "{\n  \"quantity\": 2,\n  \"unit_price\": 28.99\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
-              "raw": "{{baseUrl}}/order-items/65f012345678901234567890",
+              "raw": "{{baseUrl}}/order-items/6a4164b8457d284f4f407d7c",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "order-items",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d7c"
               ]
-            }
+            },
+            "description": "Updates order item #2 to change the quantity from 1 to 2 (still Grilled Ribeye Steak at $28.99 each)."
           }
         },
         {
-          "name": "Delete Order Item by ObjectId",
+          "id": "oi-005",
+          "name": "DELETE Order Item",
           "request": {
             "method": "DELETE",
+            "header": [],
             "url": {
-              "raw": "{{baseUrl}}/order-items/65f012345678901234567890",
+              "raw": "{{baseUrl}}/order-items/6a4164b8457d284f4f407d81",
               "host": [
                 "{{baseUrl}}"
               ],
-                "path": [
+              "path": [
                 "order-items",
-                "65f012345678901234567890"
+                "6a4164b8457d284f4f407d81"
               ]
-            }
+            },
+            "description": "Deletes order item #7 (1x Fresh Lemonade at $3.50, part of order #104). No cascading effects — only this single document is removed."
           }
         }
       ]
